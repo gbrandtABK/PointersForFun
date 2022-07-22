@@ -29,7 +29,7 @@ int main()
     // A memory leak is memory that cannot be reclaimed until the until the program ends. 
     // If enough memory leaks happen, your program will not be able to create any new data and will crash. 
 
-
+    cout << "*************** Part 1 ****************" << endl << endl;
 
     // Pointer declared on the stack. Originally points to nothing.
     int* intPtr;
@@ -130,6 +130,8 @@ int main()
     delete intPtr;
     intPtr = nullptr;
 
+    cout << "*************** Part 2 ****************" << endl << endl;
+
 
     // INTO THE WEEDS
 
@@ -187,7 +189,48 @@ int main()
     delete intPtr;
     intPtr = nullptr;
 
-    // MORE CODE TO COME.
+    cout << "*************** Part 3 ****************" << endl << endl;
+
+    // Pointers with the same addresses:
+
+    // lets decare normal ints and play with these for a minute.
+    int a = 1;
+    int b = 2;
+
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl << endl;
+
+    b = a;
+    a = 3;
+
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl << endl;
+
+    // Notice that regular variables can be copies of eachother but remain independent of each other.
+    // Pointers, however when copied and have their data modifed, they both will have their data modifed. 
+
+    int* ptr1 = new int(1);
+    int* ptr2 = new int(2);
+
+    cout << "ptr1: " << ptr1 << ", " << *ptr1 << endl;
+    cout << "ptr2: " << ptr2 << ", " << *ptr2 << endl << endl;
+
+    // Keep good habbits
+    delete ptr2;
+    
+    ptr2 = ptr1;
+    *ptr1 = 3;
+
+    // ptr1 and ptr2 now point the same address and one pointer had its data modified. 
+    // Since they point the same memeory address, they both dereference the same value.
+    cout << "ptr1: " << ptr1 << ", " << *ptr1 << endl;
+    cout << "ptr2: " << ptr2 << ", " << *ptr2 << endl << endl;
+
+    // This is cool and all but this can lead to problems of what part of the code is repsonsible for cleaning up the data?
+    // Lets say the two pointers were in two totally separate parts of the program and one pointer got deleted.
+    delete ptr1;
+
+    cout << "ptr2 now poitnts to garbage -> " << *ptr2 << endl;
 }
 
 void PtrByReferenceAssignScopedVariable(int*& ptr)
