@@ -141,6 +141,14 @@
   <ItemGroup>
     <ClCompile Include="PointersForFun.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArraysAndPointers.h" />
+    <ClInclude Include="PointerBasics.h" />
+    <ClInclude Include="PointersAsArrays.h" />
+    <ClInclude Include="PointersInScopeAndPointingToTheStack.h" />
+    <ClInclude Include="PointersPointingToPointers.h" />
+    <ClInclude Include="PointersPointingToTheSameMemory.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
